@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SubjectController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +20,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.store');
+Route::get('/subjects/create', [SubjectController::class, 'create'])->name('subjects.create');
+Route::patch('/subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
+Route::get('/subjects/{subject}/edit', [SubjectController::class, 'edit'])->name('subjects.edit');
+Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('subjects.destroy');
+Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
+Route::get('/subjects/{subject}', [SubjectController::class, 'show'])->name('subjects.show');
