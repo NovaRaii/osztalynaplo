@@ -1,7 +1,7 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
-
+ 
 use Illuminate\Http\Request;
 use App\Models\Mark;
 use App\Models\Student;
@@ -17,7 +17,7 @@ class MarkController extends Controller
         $marks = Mark::with(['student', 'subject'])->get();
         return view('marks.index', compact('marks'));
     }
-
+ 
     /**
      * Új jegy létrehozása
      */
@@ -27,7 +27,7 @@ class MarkController extends Controller
         $subjects = Subject::distinct()->get(['id', 'name']); 
         return view('marks.create', compact('students', 'subjects'));
     }
-
+ 
     /**
      * Új jegy mentése
      */
@@ -49,7 +49,7 @@ class MarkController extends Controller
 
         return redirect()->route('marks.index')->with('success', "Jegy sikeresen hozzáadva!");
     }
-
+ 
     /**
      * Jegy szerkesztése
      */
@@ -60,7 +60,7 @@ class MarkController extends Controller
         $subjects = Subject::all();
         return view('marks.edit', compact('mark', 'students', 'subjects'));
     }
-
+ 
     /**
      * Jegy frissítése
      */
@@ -82,7 +82,7 @@ class MarkController extends Controller
 
         return redirect()->route('marks.index')->with('success', "Jegy sikeresen módosítva!");
     }
-
+ 
     /**
      * Jegy törlése
      */

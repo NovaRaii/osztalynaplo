@@ -13,15 +13,24 @@ class StudentController extends Controller
      */
     public function index(Request $request, $class_id = null)
 {
+    $schoolclasses = SchoolClass::all();
+
+    
+    // A class_id query paraméter lekérése
+    $class_id = $request->input('class_id');
+    
     if ($class_id) {
-        $schoolClass = SchoolClass::findOrFail($class_id);
+        // Ha van osztály kiválasztva, akkor szűrjük a tanulókat
         $students = Student::where('class_id', $class_id)->get();
+        $schoolClass = SchoolClass::findOrFail($class_id);  // A kiválasztott osztály
     } else {
+        // Ha nincs kiválasztva osztály, akkor minden tanulót megjelenítünk
         $students = Student::all();
         $schoolClass = null;
     }
 
-    return view('students.index', compact('students', 'schoolClass'));
+    // Visszaküldjük a nézetet az osztályok és a tanulók listájával
+    return view('students.index', compact('students', 'schoolclasses', 'schoolClass'));
 }
 
 
@@ -30,7 +39,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        $schoolclasses = SchoolClass::all();
+        return view('students.create', compact('schoolclasses'));
     }
 
     /**
@@ -39,7 +49,9 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $student  = new Student();
-        $student->name = $request->input('name'); 
+        $student->name = $request->input('name');
+        $student->gender = $request->input('gender');
+        $student->class_id = $request->input('class_id');   
         $student->save();
  
         return redirect()->route('students.index')->with('success', "{$student->name} sikeresen létrehozva");
