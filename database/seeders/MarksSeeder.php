@@ -12,6 +12,14 @@ class MarksSeeder extends Seeder
         ['student_id' => 2, 'subject_id' => 1, 'mark' => 4, 'date' => '2025-03-02'],
         ['student_id' => 3, 'subject_id' => 3, 'mark' => 3, 'date' => '2025-03-03'],
         ['student_id' => 4, 'subject_id' => 4, 'mark' => 2, 'date' => '2025-03-04'],
+        ['student_id' => 5, 'subject_id' => 2, 'mark' => 5, 'date' => '2025-03-04'],
+        ['student_id' => 6, 'subject_id' => 2, 'mark' => 5, 'date' => '2025-03-04'],
+        ['student_id' => 7, 'subject_id' => 6, 'mark' => 2, 'date' => '2025-03-04'],
+        ['student_id' => 8, 'subject_id' => 4, 'mark' => 1, 'date' => '2025-03-04'],
+        ['student_id' => 9, 'subject_id' => 3, 'mark' => 4, 'date' => '2025-03-04'],
+        ['student_id' => 10, 'subject_id' => 7, 'mark' => 5, 'date' => '2025-03-04'],
+        ['student_id' => 11, 'subject_id' => 5, 'mark' => 5, 'date' => '2025-03-04'],
+        ['student_id' => 12, 'subject_id' => 4, 'mark' => 5, 'date' => '2025-03-04'],
     ];
 
     public function run()

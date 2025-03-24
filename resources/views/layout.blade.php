@@ -21,7 +21,7 @@
 <body>
     <header>
         <div class="row">
-            <img src="{{ asset('img/yellow_camaro.png') }}" alt="logo" width="175" height="100">
+            
             <nav>
                     <button><a href="{{ route('subjects.index') }}">Tantárgyak</a></button>
                     <button><a href="{{ route('students.index') }}">Tanulók</a></button>

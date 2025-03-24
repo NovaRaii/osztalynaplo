@@ -12,6 +12,12 @@ class SubjectsSeeder extends Seeder
         'Fizika',
         'Irodalom',
         'Történelem',
+        'Testnevelés',
+        'Informatika',
+        'Nyelvtan',
+        'Angol nyelv',
+        'Német nyelv',
+        'Kémia'
     ];
 
     public function run()

@@ -1,52 +1,43 @@
 @extends('layout')
  
 @section('content')
-<h1>Tanulók</h1>
+<h1>Jegyek</h1>
 <div>
-    <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
- 
-    <ul>
-        <table>
-        <a href="{{ route(name: 'subjects.create') }}" title="Új">Új hozzáadása</a>
-        @foreach($subjects as $subject)
-            <li class="row {{ $loop->iteration % 2 == 0 ? 'even' : 'odd' }}">
-                <div class="col id">{{ $subject->id }}</div>
-                <div class="col">{{$subject->name}}</div>
-                <div class="right">
-                    <div class="col">
-{{--                        <a href="{{ route('subjects.show', $subject->id) }}"><button><i class="fa fa-binoculars" title="Mutat"></i></button></a></div>--}}
-                       
-                    </div>
- 
-                    
-                        <div class="col">
-                            <a href="{{ route('subjects.edit', $subject->id) }}"><button>Módosít</button></a>
-                        </div>
-                        <div class="col">
-                            <form action="{{ route('subjects.destroy', $subject->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" name="btn-del-subject">Töröl</button>
-                            </form>
-                        </div>
-                    
-                </div>
- 
-            </li>
-        @endforeach
-        </table>
-    </ul>
-    @isset($abc)
-        <div class="paginator">
-            {{ $subjects
-                ->appends([
-                    'sort_by' => request('sort_by'),
-                    'sort_dir' => request('sort_dir'),
-                ])
-                ->links()
- 
-            }}
-        </div>
-    @endisset
+    @include('success')
+    <button class="add-button">
+        <a href="{{ route('marks.create') }}" title="Új">Új hozzáadása</a>
+    </button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Diák</th>
+                <th>Tantárgy</th>
+                <th>Jegy</th>
+                <th>Dátum</th>
+                <th>Műveletek</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($marks as $mark)
+                <tr class="{{ $loop->iteration % 2 == 0 ? 'even' : 'odd' }}">
+                    <td>{{ $mark->id }}</td>
+                    <td>{{ $mark->student ? $mark->student->name : 'Ismeretlen diák' }}</td>
+                    <td>{{ $mark->subject ? $mark->subject->name : 'Ismeretlen tantárgy' }}</td>
+                    <td>{{ $mark->mark }}</td>
+                    <td>{{ $mark->date }}</td>
+                    <td class="right">
+                        <a href="{{ route('marks.edit', $mark->id) }}"><button>Módosítás</button></a>
+                        <form action="{{ route('marks.destroy', $mark->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" name="btn-del-mark">Törlés</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 @endsection

@@ -9,4 +9,5 @@ class SchoolClass extends Model
     public $timestamps = false;
     protected $fillable = ['name', 'year'];
     protected $table = 'classes';
+    
 }

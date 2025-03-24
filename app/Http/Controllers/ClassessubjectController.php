@@ -12,7 +12,9 @@ class ClassessubjectController extends Controller
      */
     public function index()
     {
-        //
+        $classSubjects = ClassesSubject::with(['schoolclass', 'subject'])->get();
+
+        return view('classessubjects.index', compact('classSubjects'));
     }
 
     /**

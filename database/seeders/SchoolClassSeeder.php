@@ -9,7 +9,11 @@ class SchoolClassSeeder extends Seeder
 {
     const ITEMS = [
         ['name' => '9.A', 'year' => 2025],
-        ['name' => '10.B', 'year' => 2024],
+        ['name' => '10.B', 'year' => 2025],
+        ['name' => '9.C', 'year' => 2024],
+        ['name' => '10.D', 'year' => 2024],
+        ['name' => '9.D', 'year' => 2023],
+        ['name' => '10.A', 'year' => 2023],
     ];
 
     public function run()
