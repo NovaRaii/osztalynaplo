@@ -4,17 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\SchoolClass;
 
 class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(Request $request, $class_id = null)
+{
+    if ($class_id) {
+        $schoolClass = SchoolClass::findOrFail($class_id);
+        $students = Student::where('class_id', $class_id)->get();
+    } else {
         $students = Student::all();
-        return view('students.index', compact('students'));
+        $schoolClass = null;
     }
+
+    return view('students.index', compact('students', 'schoolClass'));
+}
+
 
     /**
      * Show the form for creating a new resource.

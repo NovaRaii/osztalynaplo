@@ -10,14 +10,14 @@
 <div>
 
 
-<form action="{{ route('subjects.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('schoolclasses.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <fieldset>
             <label for="name">Megnevezés</label>
             <input type="text" id="name" name="name">
         </fieldset>
         <button type="submit">Ment</button>
-        <a href="{{ route('subjects.index') }}">Mégse</a>
+        <a href="{{ route('schoolclasses.index') }}">Mégse</a>
     </form>
 </div>
 @endsection

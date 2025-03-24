@@ -8,4 +8,9 @@ class Student extends Model
 {
     public $timestamps = false;
     protected $fillable = ['name','gender','class_id'];
+
+    public function class()
+    {
+        return $this->belongsTo(SchoolClass::class, 'class_id');
+    }
 }

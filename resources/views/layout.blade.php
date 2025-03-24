@@ -24,10 +24,10 @@
             <img src="{{ asset('img/yellow_camaro.png') }}" alt="logo" width="175" height="100">
             <nav>
                     <button><a href="{{ route('subjects.index') }}">Tantárgyak</a></button>
-                    <!--<button><a href="{{ route('students.index') }}">Tanulók</a></button>
+                    <button><a href="{{ route('students.index') }}">Tanulók</a></button>
                     <button><a href="{{ route('marks.index') }}">Érdemjegyek</a></button>
                     <button><a href="{{ route('schoolclasses.index') }}">Osztályok</a></button>
-                    <button><a href="{{ route('classessubjects.index') }}">Osztály Tantárgyai</a></button>-->
+                    <button><a href="{{ route('classessubjects.index') }}">Osztály Tantárgyai</a></button>
  
             </nav>
         </div>

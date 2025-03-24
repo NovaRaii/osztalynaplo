@@ -61,3 +61,4 @@ Route::patch('/schoolclasses/{schoolclass}', [SchoolClassController::class, 'upd
 Route::get('/schoolclasses/{schoolclass}/edit', [SchoolClassController::class, 'edit'])->name('schoolclasses.edit');
 Route::delete('/schoolclasses/{schoolclass}', [SchoolClassController::class, 'destroy'])->name('schoolclasses.destroy');
 Route::get('/schoolclasses', [SchoolClassController::class, 'index'])->name('schoolclasses.index');
+Route::get('/schoolclasses/{id}/students', [StudentController::class, 'index'])->name('schoolclasses.students');
