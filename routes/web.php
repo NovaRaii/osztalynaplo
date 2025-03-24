@@ -39,7 +39,7 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 Route::patch('/students/{student}', [StudentController::class, 'update'])->name('students.update');
 Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
 Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+Route::get('/students/{class_id?}', [StudentController::class, 'index'])->name('students.index');
  
 Route::post('/mark', [MarkController::class, 'store'])->name('marks.store');
 Route::get('/marks/create', [MarkController::class, 'create'])->name('marks.create');

@@ -29,10 +29,11 @@ class SchoolClassController extends Controller
     public function store(Request $request)
     {
         $schoolclass = new SchoolClass();
+        $schoolclass->year = $request->input('year');
         $schoolclass->name = $request->input('name');
         $schoolclass->save();
  
-        return redirect()->route('fuels.index')->with('success', "{$schoolclass->name} sikeresen létrehozva");
+        return redirect()->route('schoolclasses.index')->with('success', "{$schoolclass->name} sikeresen létrehozva");
     }
  
     /**

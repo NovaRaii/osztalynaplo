@@ -6,14 +6,16 @@
 
 	
 @section('content')
-<h1>Új karosszéria</h1>
+<h1>Új Osztály</h1>
 <div>
 
 
 <form action="{{ route('schoolclasses.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <fieldset>
-            <label for="name">Megnevezés</label>
+            <label for="year">Évfolyam</label>
+            <input type="text" id="year" name="year">
+            <label for="name">Osztály</label>
             <input type="text" id="name" name="name">
         </fieldset>
         <button type="submit">Ment</button>
