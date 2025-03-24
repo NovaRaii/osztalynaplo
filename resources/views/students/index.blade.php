@@ -4,6 +4,7 @@
 <h1>Tanulók</h1>
 <div>
 	@include('success')
+	
     <button class="add-button"><a href="{{ route('students.create') }}" title="Új">Új hozzáadása</a></button>
 	@foreach($students as $student)
 		<div class="row {{ $loop->iteration % 2 == 0 ? 'even' : 'odd' }}">

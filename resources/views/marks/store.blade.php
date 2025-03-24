@@ -1,23 +1,3 @@
-@extends('layout')
- 
-    <main>
-            @yield('content')
-        </main>
- 
-   
-@section('content')
-<h1>Új karosszéria</h1>
 <div>
- 
- 
-<form action="{{ route('classessubjects.store') }}" method="post" enctype="multipart/form-data">
-        @csrf
-        <fieldset>
-            <label for="name">Megnevezés</label>
-            <input type="text" id="name" name="name">
-        </fieldset>
-        <button type="submit">Ment</button>
-        <a href="{{ route('classessubjects.index') }}">Mégse</a>
-    </form>
+    <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
 </div>
-@endsection
