@@ -12,7 +12,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('students.index', compact('students'));
     }
 
     /**
@@ -20,7 +21,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -28,7 +29,11 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student  = new Student();
+        $student->name = $request->input('name'); 
+        $student->save();
+ 
+        return redirect()->route('students.index')->with('success', "{$student->name} sikeresen létrehozva");
     }
 
     /**
@@ -36,7 +41,8 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $student = Student::find($id);
+        return view('students.show', compact('student'));
     }
 
     /**
@@ -44,7 +50,8 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = Student::find($id);
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -52,7 +59,11 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $student  = Student::find($id);
+        $student->name = $request->input('name');
+        $student->save();
+ 
+        return redirect()->route('students.index')->with('success', "{$student->name} sikeresen módosítva");
     }
 
     /**
@@ -60,6 +71,9 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $student  = Student::find($id);
+        $student->delete();
+ 
+        return redirect()->route('students.index')->with('success', "Sikeresen törölve");
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Classes_subject;
+use App\Models\Classessubject;
 use Illuminate\Database\Seeder;
 
 class ClassesSubjectsSeeder extends Seeder
@@ -17,7 +17,7 @@ class ClassesSubjectsSeeder extends Seeder
     public function run()
     {
         foreach (self::ITEMS as $item) {
-            $classSubject = new Classes_subject();
+            $classSubject = new Classessubject();
             $classSubject->class_id = $item['class_id'];
             $classSubject->subject_id = $item['subject_id'];
             $classSubject->save();

@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SubjectsSeeder::class,
             ClassesSubjectsSeeder::class,
             MarksSeeder::class,
+            SchoolClassSeeder::class,
         ]);
     }
 }

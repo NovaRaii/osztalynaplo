@@ -12,7 +12,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::all();
+        return view('subjects.index', compact('subjects'));
     }
 
     /**
@@ -20,7 +21,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('subjects.create');
     }
 
     /**
@@ -28,7 +29,11 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject  = new Subject();
+        $subject->name = $request->input('name'); 
+        $subject->save();
+ 
+        return redirect()->route('subjects.index')->with('success', "{$subject->name} sikeresen létrehozva");
     }
 
     /**
@@ -36,7 +41,8 @@ class SubjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $subject = Subject::find($id);
+        return view('subjects.show', compact('subject'));
     }
 
     /**
@@ -44,7 +50,8 @@ class SubjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $subject = Subject::find($id);
+        return view('subjects.edit', compact('subject'));
     }
 
     /**
@@ -52,7 +59,11 @@ class SubjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $subject  = Subject::find($id);
+        $subject->name = $request->input('name');
+        $subject->save();
+ 
+        return redirect()->route('subjects.index')->with('success', "{$subject->name} sikeresen módosítva");
     }
 
     /**
@@ -60,6 +71,9 @@ class SubjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $subject  = Subject::find($id);
+        $subject->delete();
+ 
+        return redirect()->route('subjects.index')->with('success', "Sikeresen törölve");
     }
 }
