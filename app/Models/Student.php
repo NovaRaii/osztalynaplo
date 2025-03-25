@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['name','gender','class_id'];
+    protected $fillable = ['name','gender','school_class_id'];
 
     public function class()
     {
-        return $this->belongsTo(SchoolClass::class, 'class_id');
+        return $this->belongsTo(SchoolClass::class, 'school_class_id');
     }
 }

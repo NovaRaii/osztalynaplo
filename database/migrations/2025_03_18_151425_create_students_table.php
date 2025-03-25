@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->index();
             $table->string('gender');
-            $table->integer('class_id');
+            $table->integer('school_class_id');
         });
     }
 

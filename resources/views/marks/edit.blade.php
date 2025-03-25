@@ -8,8 +8,8 @@
             @csrf
             @method('PATCH')
             <fieldset>
-                <label for="name">Megnevezés</label>
-                <input type="text" id="name" name="name" required value="{{ old('name', $mark->name) }}">
+                <label for="mark">Jegy</label>
+                <input type="text" id="mark" name="mark" required value="{{ old('mark', $mark->mark) }}">
             </fieldset>
             <button type="submit">Ment</button>
             <a href="{{ route('marks.index') }}">Mégse</a>

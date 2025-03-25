@@ -7,9 +7,9 @@
  
     <!-- Scripts -->
     <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
-    <!--<script src="{{ asset('js/cars.js') }}" defer></script>-->
+    <script src="{{ asset('js/classbook.js') }}" defer></script>
     <!--<script src="{{ asset('js/jquery-3.7.1.js') }}"></script>-->
-    <!--<script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>-->
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     <!-- Styles -->
     <!--<link rel="stylesheet" href="{{ asset('css/app.css') }}">-->
     <!--<link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}" >-->

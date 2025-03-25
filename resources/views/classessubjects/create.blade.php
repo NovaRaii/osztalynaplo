@@ -1,23 +1,32 @@
 @extends('layout')
 
-	<main>
-        	@yield('content')
-    	</main>
-
-	
 @section('content')
-<h1>Új karosszéria</h1>
-<div>
+    <h1>Új osztály-tantárgy hozzárendelése</h1>
 
-
-<form action="{{ route('subjects.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('classessubjects.store') }}" method="POST">
         @csrf
+
         <fieldset>
-            <label for="name">Megnevezés</label>
-            <input type="text" id="name" name="name">
+            <label for="class_id">Osztály</label>
+            <select id="class_id" name="class_id" required>
+                <option value="">Válassz osztályt</option>
+                @foreach($schoolclasses as $schoolclass)
+                    <option value="{{ $schoolclass->id }}">{{ $schoolclass->name }}</option>
+                @endforeach
+            </select>
         </fieldset>
-        <button type="submit">Ment</button>
-        <a href="{{ route('subjects.index') }}">Mégse</a>
+
+        <fieldset>
+            <label for="subject_id">Tantárgy</label>
+            <select id="subject_id" name="subject_id" required>
+                <option value="">Válassz tantárgyat</option>
+                @foreach($subjects as $subject)
+                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                @endforeach
+            </select>
+        </fieldset>
+
+        <button type="submit">Hozzáadás</button>
+        <a href="{{ route('classessubjects.index') }}">Mégse</a>
     </form>
-</div>
 @endsection

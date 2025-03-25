@@ -2,6 +2,7 @@
  
 namespace App\Http\Controllers;
 use App\Models\SchoolClass;
+use App\Models\Classessubject;
 use Illuminate\Http\Request;
  
 class SchoolClassController extends Controller
@@ -75,4 +76,23 @@ class SchoolClassController extends Controller
  
         return redirect()->route('schoolclasses.index')->with('success', "Sikeresen törölve");
     }
+
+    public function fetchStudents($entityId)
+	{
+		$entity = SchoolClass::find($entityId);
+       
+		$result['data'] = $entity->students;
+
+		return response()->json($result);
+	}
+
+    public function fetchClassessubjects($entityId)
+    {
+        $entity = SchoolClass::find($entityId);
+       
+		$result['data'] = $entity->classessubjects;
+
+		return response()->json($result);
+    }
+    
 }

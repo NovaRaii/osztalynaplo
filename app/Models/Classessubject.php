@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Classessubject extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['class_id', 'subject_id'];
+    protected $fillable = ['school_class_id', 'subject_id'];
 
-    public function schoolclass()
+    public function class()
     {
-        return $this->belongsTo(Schoolclass::class, 'class_id');
+        return $this->belongsTo(Schoolclass::class, 'school_class_id');
     }
 
-    public function subject()
+    public function classessubject()
     {
-        return $this->belongsTo(Subject::class, 'subject_id');
+        return $this->belongsTo(SchoolClass::class, 'subject_id');
     }
 }

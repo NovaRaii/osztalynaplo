@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ClassessubjectController;
 use App\Http\Controllers\SchoolClassController;
- 
- 
- 
+use App\Http\Controllers\ClassbookController;
+use App\Models\SchoolClass;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -62,4 +62,14 @@ Route::patch('/schoolclasses/{schoolclass}', [SchoolClassController::class, 'upd
 Route::get('/schoolclasses/{schoolclass}/edit', [SchoolClassController::class, 'edit'])->name('schoolclasses.edit');
 Route::delete('/schoolclasses/{schoolclass}', [SchoolClassController::class, 'destroy'])->name('schoolclasses.destroy');
 Route::get('/schoolclasses', [SchoolClassController::class, 'index'])->name('schoolclasses.index');
-Route::get('/schoolclasses/{id}/students', [StudentController::class, 'index'])->name('schoolclasses.students');
+Route::get('/schoolclasses/{id}/students', [SchoolClassController::class, 'index'])->name('schoolclasses.students');
+Route::get('/schoolclasses/{schoolclass}/fetch-students', [SchoolClassController::class, 'fetchStudents'])->name('schoolclasses.fetch.students');
+Route::get('/schoolclasses/{schoolclass}/fetch-classessubjects', [SchoolClassController::class, 'fetchClassessubjects'])->name('schoolclasses.fetch.classessubjects');
+
+Route::post('/classbooks', [ClassbookController::class, 'store'])->name('classbooks.store');
+Route::get('/classbooks/create', [ClassbookController::class, 'create'])->name('classbooks.create');
+Route::patch('/classbooks/{schoolclass}', [ClassbookController::class, 'update'])->name('classbooks.update');
+Route::get('/classbooks/{schoolclass}/edit', [ClassbookController::class, 'edit'])->name('classbooks.edit');
+Route::delete('/classbooks/{schoolclass}', [ClassbookController::class, 'destroy'])->name('classbooks.destroy');
+Route::get('/classbooks', [ClassbookController::class, 'index'])->name('classbooks.index');
+Route::get('/classbooks/{id}/students', [ClassbookController::class, 'index'])->name('classbooks.students');
